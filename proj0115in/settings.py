@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app0115',
     'rest_framework',
+    'debug_toolbar',
     #'rest_framework.authToken',
 ]
 
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'proj0115in.urls'
@@ -126,5 +128,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+}
 
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_COLLAPSED': True,
+    'SHOW_TOOLBAR_CALLBACK': lambda request: True,
+    'SQL_WARNING_THRESHOLD': 0.1,
+    'RESULTS_CACHE_SIZE': 10,
 }
